@@ -35,8 +35,8 @@ function generate_homogeneous_population_LG(T1::TissueMechProperties_LG_t, N, m)
 end
 
 
-function SetupODEproblem(TissueMech, SimTime, u0)
-    p = (TissueMech, SimTime)
+function SetupODEproblem(TissueMech, SimTime, u0, y)
+    p = (TissueMech, SimTime, y)
     tspan = (0.0, SimTime.Tmax)
     return ODEProblem(BiofilmBucklingSM_ODE!,u0,tspan,p), p
 end
